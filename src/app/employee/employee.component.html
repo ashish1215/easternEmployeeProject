@@ -1,0 +1,21 @@
+
+<div class="header">
+<input type="search" placeholder="Search by name or city" [formControl]="search">
+<button (click)= "add()"> Add New </button>
+</div>
+<table style="width:100%">
+    <tr>
+     <th *ngFor="let column of columns">{{capitalize(column)}}</th>
+     <th></th>
+    </tr>
+    <tr *ngFor="let employee of employeeSearchData;index as i">
+      <td>{{employee.id}}</td>
+      <td>{{employee.name}}</td>
+      <td>{{employee.phone}}</td>
+      <td>{{employee.address.city}}</td>
+      <td>{{employee.address.address_line1}}</td>
+      <td>{{employee.address.address_line2}}</td>
+      <td>{{employee.address.postal_code}}</td>
+      <td><a (click)="edit(i)">Edit</a></td>
+    </tr>
+  </table>

@@ -1,0 +1,12 @@
+<form [formGroup]="employeeGroup">
+<input type="text" placeholder="Name" formControlName = "name" minlength="4" required> <br>
+<div class="error" *ngIf="this.employeeGroup.get('name').touched && this.employeeGroup.get('name').errors && this.employeeGroup.get('name').errors.minlength "> Minimum 4 Charecters required </div>
+<div class="error" *ngIf="this.employeeGroup.get('name').touched && this.employeeGroup.get('name').errors && this.employeeGroup.get('name').errors.required ">Name is required</div>
+<input type="number" placeholder="Phone" formControlName = "phone" required> <br>
+<div class="error" *ngIf="this.employeeGroup.get('phone').touched && this.employeeGroup.get('phone').errors && this.employeeGroup.get('phone').errors.required ">Phone number is required</div>
+<input type="text" placeholder="City" formControlName = "city"> <br>
+<textarea type="text" placeholder="AddressLine1" formControlName = "address_line1"></textarea> <br>
+<textarea type="text" placeholder="AddressLine2" formControlName = "address_line2"></textarea> <br>
+<input type="text" placeholder="Postal Code" formControlName = "postal_code"> <br>
+</form>
+<button (click)="mode == 'edit' ? editEmployee() : addEmployee()"> {{mode == "edit" ? "Edit" : "Add"}} </button>
