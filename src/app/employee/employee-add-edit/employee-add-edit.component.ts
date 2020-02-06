@@ -53,6 +53,7 @@ export class EmployeeAddEditComponent implements OnInit {
      }
      this.subscriptions.add(this.employeeService.data.subscribe((response) => {
        let objectIndex = response.findIndex((object) => object.id === this.id)
+       payload['id'] =  objectIndex + 1;
        response[objectIndex] = payload
        this.router.navigate(['/employee'])
      }))
